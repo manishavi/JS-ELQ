@@ -2,27 +2,28 @@
 
 ## Automatic type conversion
 
-* COERCION: When an operator is applied to "wrong" type of value, Javascript will quietly convert that value to the type it needs, using a set of rules that aren't what you want or expect. This is called `coercion`.
+- COERCION: When an operator is applied to "wrong" type of value, Javascript will quietly convert that value to the type it needs, using a set of rules that aren't what you want or expect. This is called `coercion`.
 
-* The rules for converting strings and numbers to Boolean values state that 0, NaN, and the empty string ("") count as false, while all the other values count as true.
+- The rules for converting strings and numbers to Boolean values state that 0, NaN, and the empty string ("") count as false, while all the other values count as true.
 
-* When you do not want any automatic type conversions to happen, there are two additional operators: === and !==.
+- When you do not want any automatic type conversions to happen, there are two additional operators: === and !==.
 
 ## Expressions and statements
 
-* A fragment of code that produces a value is called an expression.
+- A fragment of code that produces a value is called an expression.
 
-* If an expression corresponds to a sentence fragment, a JavaScript statement corresponds to a full sentence. A program is a list of statements.
+- If an expression corresponds to a sentence fragment, a JavaScript statement corresponds to a full sentence. A program is a list of statements.
 
 ## Bindings
 
-* To catch and hold values, JavaScript provides a thing called a binding, or variable.
-    `let ten = 10;`
-* The = operator can be used at any time on existing bindings to disconnect them from their current value and have them point to a new one.
-    ```let mood = "light";
-    console.log(mood);
-    mood = "dark";
-    console.log(mood);
+- To catch and hold values, JavaScript provides a thing called a binding, or variable.
+  `let ten = 10;`
+- The = operator can be used at any time on existing bindings to disconnect them from their current value and have them point to a new one.
+  ```let mood = "light";
+  console.log(mood);
+  mood = "dark";
+  console.log(mood);
+  ```
 
 ## The environment
 
@@ -30,8 +31,8 @@ The collection of bindings and their values that exist at a given time is called
 
 ## Functions
 
-* A function is a piece of program wrapped in a value. Such values can be applied in order to run the wrapped program.
-* Executing a function is called invoking, calling, or applying it. You can call a function by putting parentheses after an expression that produces a function value.
+- A function is a piece of program wrapped in a value. Such values can be applied in order to run the wrapped program.
+- Executing a function is called invoking, calling, or applying it. You can call a function by putting parentheses after an expression that produces a function value.
 
 ## Control Flow
 
@@ -44,7 +45,6 @@ When your program contains more than one statement, the statements are executed 
 Not all programs are straight roads. We may, for example, want to create a branching road, where the program takes the proper branch based on the situation at hand. This is called conditional execution.
 
 ```bash
-
     1-> /\
     -->    -->
     2-> \/
@@ -52,9 +52,9 @@ Not all programs are straight roads. We may, for example, want to create a branc
 
 ## while and do loops
 
-* A statement starting with the keyword while creates a loop. The word while is followed by an expression in parentheses and then a statement, much like if. The loop keeps entering that statement as long as the expression produces a value that gives true when converted to Boolean.
+- A statement starting with the keyword while creates a loop. The word while is followed by an expression in parentheses and then a statement, much like if. The loop keeps entering that statement as long as the expression produces a value that gives true when converted to Boolean.
 
-* A do loop is a control structure similar to a while loop. It differs only on one point: a do loop always executes its body at least once, and it starts testing whether it should stop only after that first execution. To reflect this, the test appears after the body of the loop.
+- A do loop is a control structure similar to a while loop. It differs only on one point: a do loop always executes its body at least once, and it starts testing whether it should stop only after that first execution. To reflect this, the test appears after the body of the loop.
 
 ```bash
     -->\  /->-->
@@ -71,17 +71,17 @@ There is a construct called switch that is intended to express such a “dispatc
 
 ## Function
 
-* A function definition is a regular binding where the value of the binding is a function.
+- A function definition is a regular binding where the value of the binding is a function.
 
-* A function is created with an expression that starts with the keyword function. Functions have a set of parameters and a body.
+- A function is created with an expression that starts with the keyword function. Functions have a set of parameters and a body.
 
 ## Bindings and Scopes
 
-* For bindings(variables) defined outside of any function or block, the scope is the whole program—you can refer to such bindings wherever you want. These are called global.
+- For bindings(variables) defined outside of any function or block, the scope is the whole program—you can refer to such bindings wherever you want. These are called global.
 
-* Bindings created for function parameters or declared inside a function can only be referenced in that function, so they are known as local bindings.
+- Bindings created for function parameters or declared inside a function can only be referenced in that function, so they are known as local bindings.
 
-* Bindings declared with let and const are in fact local to the block that they are declared in, so if you create one of those inside of a loop, the code before and after the loop cannot “see” it. In pre-2015 JavaScript, only functions created new scopes, so old-style bindings, created with the var keyword, are visible throughout the whole function that they appear in—or throughout the global scope, if they are not in a function.
+- Bindings declared with let and const are in fact local to the block that they are declared in, so if you create one of those inside of a loop, the code before and after the loop cannot “see” it. In pre-2015 JavaScript, only functions created new scopes, so old-style bindings, created with the var keyword, are visible throughout the whole function that they appear in—or throughout the global scope, if they are not in a function.
 
 ```z
     let x = 10;
@@ -98,7 +98,7 @@ There is a construct called switch that is intended to express such a “dispatc
 
 ## Nested Scope
 
-* Each local scope can also see all the local scopes that contain it, and all scopes can see the global scope. This approach to binding visibility is called lexical scoping.
+- Each local scope can also see all the local scopes that contain it, and all scopes can see the global scope. This approach to binding visibility is called lexical scoping.
 
 ## Functions as values
 
@@ -211,3 +211,20 @@ Both string and array objects contain, in addition to the length property, a num
 
 e.g. `toUpperCase is a method of a string`.
 
+## Objects
+
+Values of the type object are arbitrary collections of properties. One way to create an object is by using braces as an expression.
+
+### Reading a property that doesn’t exist will give you the value undefined
+
+You may think of objects as octopuses with any number of tentacles, each of which has a name tattooed on it.
+
+The `delete` operator cuts off a tentacle from such an octopus. It is a unary operator that, when applied to an object property, will remove the named property from the object.
+
+The binary `in` operator, when applied to a string and an object, tells you whether that object has a property with that name.
+
+To find properties of an object, you can use the `Object.keys` function.
+
+`Object.assign` function copies all properties from one object into another.
+
+`Arrays` are just a kind of object specialized for storing sequences of things.typeof [], produces "object".
