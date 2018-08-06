@@ -228,3 +228,9 @@ To find properties of an object, you can use the `Object.keys` function.
 `Object.assign` function copies all properties from one object into another.
 
 `Arrays` are just a kind of object specialized for storing sequences of things.typeof [], produces "object".
+
+## Mutability
+
+Bindings can also be changeable or constant, but this is separate from the way their values behave. Even though number values don’t change, you can use a `let` binding to keep track of a changing number by changing the value the binding points at. Similarly, though a `const` binding to an object can itself not be changed and will continue to point at the same object, the contents of that object might change.
+
+When you compare objects with JavaScript’s `==` operator, it compares by identity: it will produce true only if both objects are precisely the same value. Comparing different objects will return false, even if they have identical properties. There is no “deep” comparison operation built into JavaScript, which compares objects by contents, but it is possible to write it yourself.
