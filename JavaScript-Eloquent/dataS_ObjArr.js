@@ -55,3 +55,14 @@ console.log(object3.value);
 const score = { visitors: 0, home: 0 };
 score.visitors = 1;
 // score = { visitors: 1, home: 1 }; //this isn't allowed
+
+function phi(table) {
+  return (table[3] * table[0] - table[2] * table[1]) /
+    Math.sqrt((table[2] + table[3]) *
+        (table[0] + table[1]) *
+        (table[1] + table[3]) *
+        (table[0] + table[2]));
+}
+
+console.log(phi([76, 9, 4, 1]));
+// → 0.068599434

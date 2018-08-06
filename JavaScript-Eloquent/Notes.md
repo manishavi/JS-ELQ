@@ -243,3 +243,29 @@ To compute the measure of correlation between two Boolean variables, we can use 
 `ϕ = (n11n00 − n10n01)/(√ n1•n0•n•1n•0)`
 
 The notation `n01` indicates the number of measurements where the first variable false (0) and the second variable is true (1).
+
+### Computing correlation
+
+We can represent a `two-by-two` table in JavaScript with a f`our-element array` ([76, 9, 4, 1]). We could also use other representations, such as an array containing two two-element arrays `([[76, 9], [4, 1]])` or an object with property names like "11" and "01", but the flat array is simple and makes the expressions that access the table pleasantly short.
+
+`Math.sqrt` is the square root function, as provided by the Math object in a standard JavaScript environment.
+
+To extract a `two-by-two table` for a specific event from the journal, we must loop over all the entries and tally how many times the event occurs in relation to squirrel transformations.
+
+```bash
+function tableFor(event, journal) {
+  let table = [0, 0, 0, 0];
+  for (let i = 0; i < journal.length; i++) {
+    let entry = journal[i], index = 0;
+    if (entry.events.includes(event)) index += 1;
+    if (entry.squirrel) index += 2;
+    table[index] += 1;
+  }
+  return table;
+}
+
+console.log(tableFor("pizza", JOURNAL));
+// → [76, 9, 4, 1]
+```
+
+Arrays have an `includes` method that checks whether a given value exists in the array.
