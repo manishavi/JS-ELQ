@@ -234,3 +234,12 @@ To find properties of an object, you can use the `Object.keys` function.
 Bindings can also be changeable or constant, but this is separate from the way their values behave. Even though number values don’t change, you can use a `let` binding to keep track of a changing number by changing the value the binding points at. Similarly, though a `const` binding to an object can itself not be changed and will continue to point at the same object, the contents of that object might change.
 
 When you compare objects with JavaScript’s `==` operator, it compares by identity: it will produce true only if both objects are precisely the same value. Comparing different objects will return false, even if they have identical properties. There is no “deep” comparison operation built into JavaScript, which compares objects by contents, but it is possible to write it yourself.
+
+### The lycanthrope’s log
+
+`Correlation` is a measure of dependence between statistical variables. A statistical variable is not quite the same as a programming variable. In statistics you typically have a set of measurements, and each variable is measured for every measurement. Correlation between variables is usually expressed as a value that ranges from -1 to 1. Zero correlation means the variables are not related. A correlation of one indicates that the two are perfectly related—if you know one, you also know the other. Negative one also means that the variables are perfectly related but that they are opposites—when one is true, the other is false.
+To compute the measure of correlation between two Boolean variables, we can use the phi coefficient (ϕ).
+
+`ϕ = (n11n00 − n10n01)/(√ n1•n0•n•1n•0)`
+
+The notation `n01` indicates the number of measurements where the first variable false (0) and the second variable is true (1).
