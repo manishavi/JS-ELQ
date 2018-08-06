@@ -269,3 +269,24 @@ console.log(tableFor("pizza", JOURNAL));
 ```
 
 Arrays have an `includes` method that checks whether a given value exists in the array.
+
+## Array loops
+
+```bash
+for (let i = 0; i < JOURNAL.length; i++) {
+  let entry = JOURNAL[i];
+  // Do something with entry
+}
+```
+
+This kind of loop is common in classical JavaScript—going over arrays one element at a time is something that comes up a lot, and to do that you’d run a counter over the length of the array and pick out each element in turn.
+
+There is a simpler way to write such loops in modern JavaScript.
+
+```bash
+for (let entry of JOURNAL) {
+  console.log(`${entry.events.length} events.`);
+}
+```
+
+When a for loop looks like this, with the word `of` after a variable definition, it will loop over the elements of the value given after `of`. This works not only for arrays but also for strings and some other data structures.
