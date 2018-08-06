@@ -1,3 +1,4 @@
+let JOURNAL = require("./journal.js");
 let doh = "Doh";
 console.log(typeof doh.toUpperCase);
 // → function
@@ -56,6 +57,26 @@ const score = { visitors: 0, home: 0 };
 score.visitors = 1;
 // score = { visitors: 1, home: 1 }; //this isn't allowed
 
+let journal = [];
+
+function addEntry(events, squirrel) {
+  journal.push({ events, squirrel });
+}
+
+addEntry(["work", "touched tree", "pizza", "running", "television"], false);
+addEntry(
+  [
+    "work",
+    "ice cream",
+    "cauliflower",
+    "lasagna",
+    "touched tree",
+    "brushed teeth"
+  ],
+  false
+);
+addEntry(["weekend", "cycling", "break", "peanuts", "beer"], true);
+
 function phi(table) {
   return (table[3] * table[0] - table[2] * table[1]) /
     Math.sqrt((table[2] + table[3]) *
@@ -66,3 +87,77 @@ function phi(table) {
 
 console.log(phi([76, 9, 4, 1]));
 // → 0.068599434
+
+
+function tableFor(event, journal) {
+  let table = [0, 0, 0, 0];
+  for (let i = 0; i < journal.length; i++) {
+    let entry = journal[i], index = 0;
+    if (entry.events.includes(event)) index += 1;
+    if (entry.squirrel) index += 2;
+    table[index] += 1;
+  }
+  return table;
+}
+
+console.log(tableFor("pizza", JOURNAL));
+// → [76, 9, 4, 1]
+for (let entry of JOURNAL) {
+  console.log(`${entry.events.length} events.`);
+}
+
+function journalEvents(journal) {
+  let events = [];
+  for (let entry of journal) {
+    for (let event of entry.events) {
+      if (!events.includes(event)) {
+        events.push(event);
+      }
+    }
+  }
+  return events;
+}
+
+console.log(journalEvents(JOURNAL));
+
+for (let event of journalEvents(JOURNAL)) {
+  console.log(event + ":", phi(tableFor(event, JOURNAL)));
+}
+
+for (let entry of JOURNAL) {
+  if (entry.events.includes("peanuts") &&
+    !entry.events.includes("brushed teeth")) {
+    entry.events.push("peanut teeth");
+  }
+}
+console.log(phi(tableFor("peanut teeth", JOURNAL)));
+// → 1
+
+let todoList = [];
+function remember(task) {
+  todoList.push(task);
+}
+function getTask() {
+  return todoList.shift();
+}
+function rememberUrgently(task) {
+  todoList.unshift(task);
+}
+
+console.log([1, 2, 3, 2, 1].indexOf(2));
+// → 1
+console.log([1, 2, 3, 2, 1].lastIndexOf(2));
+// → 3
+
+console.log([0, 1, 2, 3, 4].slice(2, 4));
+// → [2, 3]
+console.log([0, 1, 2, 3, 4].slice(2));
+// → [2, 3, 4]
+console.log([0, 1, 2, 3, 4].slice());
+
+function remove(array, index) {
+  return array.slice(0, index)
+    .concat(array.slice(index + 1));
+}
+console.log(remove(["a", "b", "c", "d", "e"], 2));
+// → ["a", "b", "d", "e"]

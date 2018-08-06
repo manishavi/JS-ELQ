@@ -290,3 +290,17 @@ for (let entry of JOURNAL) {
 ```
 
 When a for loop looks like this, with the word `of` after a variable definition, it will loop over the elements of the value given after `of`. This works not only for arrays but also for strings and some other data structures.
+
+### Array Methods
+
+`push` and `pop`, which add and remove elements at the end of an array.
+
+Methods for adding and removing things at the start of an array are called `unshift` and `shift`.
+
+`indexOf` method searches through the array from the start to the end and returns the index at which the requested value was found—or -1 if it wasn’t found. To search from the end instead of the start, there’s a similar method called `lastIndexOf`.
+
+Both `indexOf` and `lastIndexOf` take an optional second argument that indicates where to start searching.
+
+Method `slice` takes start and end indices and returns an array that has only the elements between them. The start index is inclusive, the end index exclusive.
+
+The `concat` method can be used to glue arrays together to create a new array, similar to what the + operator does for strings.
