@@ -188,3 +188,17 @@ console.log(string.length);
 // → 3
 console.log(string[1]);
 // → b
+
+function max(...numbers) {
+  let result = -Infinity;
+  for (let number of numbers) {
+    if (number > result) result = number;
+  }
+  return result;
+}
+console.log(max(4, 1, 9, -2));
+// → 9
+
+let wwords = ["never", "fully"];
+console.log(["will", ...wwords, "understand"]);
+// → ["will", "never", "fully", "understand"]
