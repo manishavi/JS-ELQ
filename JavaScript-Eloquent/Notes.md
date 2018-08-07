@@ -19,11 +19,13 @@
 - To catch and hold values, JavaScript provides a thing called a binding, or variable.
   `let ten = 10;`
 - The = operator can be used at any time on existing bindings to disconnect them from their current value and have them point to a new one.
-  ```let mood = "light";
+
+```bash
+  let mood = "light";
   console.log(mood);
   mood = "dark";
   console.log(mood);
-  ```
+```
 
 ## The environment
 
