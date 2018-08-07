@@ -304,3 +304,15 @@ Both `indexOf` and `lastIndexOf` take an optional second argument that indicates
 Method `slice` takes start and end indices and returns an array that has only the elements between them. The start index is inclusive, the end index exclusive.
 
 The `concat` method can be used to glue arrays together to create a new array, similar to what the + operator does for strings.
+
+## Strings and their properties
+
+Every string value has a number of methods. Some very useful ones are `slice` and `indexOf`, which resemble the array methods of the same name.
+
+The `trim` method removes whitespace (spaces, newlines, tabs, and similar characters) from the start and end of a string.
+
+`padStart` method takes the desired length and padding character as arguments.
+
+You can split a string on every occurrence of another string with `split` and join it again with `join`.
+
+A string can be repeated with the `repeat` method, which creates a new string containing multiple copies of the original string, glued together.
