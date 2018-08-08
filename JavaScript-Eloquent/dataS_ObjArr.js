@@ -217,3 +217,10 @@ console.log(Math.floor(Math.random() * 10));
 let {name} = {name: "Faraji", age: 23};
 console.log(name);
 // → Faraji
+
+let sstring = JSON.stringify({squirrel: false,
+  events: ["weekend"]});
+console.log(sstring);
+// → {"squirrel":false,"events":["weekend"]}
+console.log(JSON.parse(sstring).events);
+// → ["weekend"]
