@@ -202,3 +202,14 @@ console.log(max(4, 1, 9, -2));
 let wwords = ["never", "fully"];
 console.log(["will", ...wwords, "understand"]);
 // → ["will", "never", "fully", "understand"]
+
+function randomPointOnCircle(radius) {
+  let angle = Math.random() * 2 * Math.PI;
+  return {x: radius * Math.cos(angle),
+          y: radius * Math.sin(angle)};
+}
+console.log(randomPointOnCircle(2));
+// → {x: 0.3667, y: 1.966}
+
+console.log(Math.floor(Math.random() * 10));
+// → 2

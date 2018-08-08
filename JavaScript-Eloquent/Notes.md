@@ -350,3 +350,17 @@ console.log(max(...numbers));
 This “spreads” out the array into the function call, passing its elements as separate arguments.
 
 Square bracket array notation similarly allows the triple-dot operator to spread another array into the new array.
+
+## The Math Object
+
+The Math object is used as a container to group a bunch of related functionality. There is only one `Math` object, and it is almost never useful as a value. Rather, it provides a namespace so that all these functions and values do not have to be global bindings.
+
+Since JavaScript’s built-in `max` function is tucked safely inside the Math object, we don’t have to worry about overwriting it.
+
+Math object contains cos (cosine), sin (sine), and tan (tangent), as well as their inverse functions, acos, asin, and atan, respectively. The number π (pi)—or at least the closest approximation that fits in a JavaScript number—is available as Math.PI. There is an old programming tradition of writing the names of constant values in all caps.
+
+`Math.random` function returns a new pseudorandom number between zero (inclusive) and one (exclusive) every time you call it.
+
+If we want a whole random number instead of a fractional one, we can use `Math.floor` (which rounds down to the nearest whole number) on the result of Math.random.
+
+`Math.ceil` (for “ceiling”, which rounds up to a whole number), Math.round (to the nearest whole number), and `Math.abs`, which takes the absolute value of a number, meaning it negates negative values but leaves positive ones as they are.
