@@ -364,3 +364,30 @@ Math object contains cos (cosine), sin (sine), and tan (tangent), as well as the
 If we want a whole random number instead of a fractional one, we can use `Math.floor` (which rounds down to the nearest whole number) on the result of Math.random.
 
 `Math.ceil` (for “ceiling”, which rounds up to a whole number), Math.round (to the nearest whole number), and `Math.abs`, which takes the absolute value of a number, meaning it negates negative values but leaves positive ones as they are.
+
+## Destructuring
+
+```bash
+function phi(table) {
+  return (table[3] * table[0] - table[2] * table[1]) /
+    Math.sqrt((table[2] + table[3]) *
+      (table[0] + table[1]) *
+      (table[1] + table[3]) *
+      (table[0] + table[2])
+    );
+}
+```
+
+`let n00 = table[0]`
+
+```bash
+function phi([n00, n01, n10, n11]) {
+  return (n11 * n00 - n10 * n01) /
+    Math.sqrt((n10 + n11) * (n00 + n01) *
+      (n01 + n11) * (n00 + n10)
+    );
+}
+```
+
+Note that if you try to destructure `null` or `undefined`, you get an error, much as you would if you directly try to access a property of those values.
+

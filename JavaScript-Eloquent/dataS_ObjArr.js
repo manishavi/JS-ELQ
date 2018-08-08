@@ -213,3 +213,7 @@ console.log(randomPointOnCircle(2));
 
 console.log(Math.floor(Math.random() * 10));
 // → 2
+
+let {name} = {name: "Faraji", age: 23};
+console.log(name);
+// → Faraji
