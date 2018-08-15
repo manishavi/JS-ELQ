@@ -428,3 +428,17 @@ let list = {
 
 The resulting objects form a chain.
 A nice thing about lists is that they can share parts of their structure. For example, if I create two new values {value: 0, rest: list} and {value: -1, rest: list} (with list referring to the binding defined earlier), they are both independent lists, but they share the structure that makes up their last three elements. The original list is also still a valid three-element list.
+
+## ABSTRACTION
+
+Abstractions hide details and give us the ability to talk about problems at a higher (or more abstract) level.
+
+## Higher-order functions
+
+Functions that operate on other functions, either by taking them as arguments or by returning them, are called `higher-order functions`.
+
+Higher-order functions allow us to abstract over actions, not just values. They come in several forms. For example, we can have functions that create new functions.
+And we can have functions that change other functions.
+We can even write functions that provide new types of control flow.
+
+There is a built-in array method, `forEach`, that provides something like a for/of loop as a higher-order function.
