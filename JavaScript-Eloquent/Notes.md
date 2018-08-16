@@ -442,3 +442,9 @@ And we can have functions that change other functions.
 We can even write functions that provide new types of control flow.
 
 There is a built-in array method, `forEach`, that provides something like a for/of loop as a higher-order function.
+
+## FILTERING ARRAYS
+
+The `filter` function, rather than deleting elements from the existing array, builds up a new array with only the elements that `pass the test`. This function is pure. It does not modify the array it is given.
+
+Like `forEach`, `filter` is a standard array method.
