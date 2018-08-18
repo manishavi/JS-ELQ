@@ -448,3 +448,7 @@ There is a built-in array method, `forEach`, that provides something like a for/
 The `filter` function, rather than deleting elements from the existing array, builds up a new array with only the elements that `pass the test`. This function is pure. It does not modify the array it is given.
 
 Like `forEach`, `filter` is a standard array method.
+
+## Transforming with map
+
+The `map` method transforms an array by applying a function to all of its elements and building a new array from the returned values. The new array will have the same length as the input array, but its content will have been mapped to a new form by the function.
