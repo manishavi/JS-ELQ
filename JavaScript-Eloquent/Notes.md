@@ -452,3 +452,24 @@ Like `forEach`, `filter` is a standard array method.
 ## Transforming with map
 
 The `map` method transforms an array by applying a function to all of its elements and building a new array from the returned values. The new array will have the same length as the input array, but its content will have been mapped to a new form by the function.
+
+## Summarizing with reduce
+
+The higher-order operation that compute a single value from array is called `reduce` (sometimes also called fold). It builds a value by repeatedly taking a single element from the array and combining it with the current value. When summing numbers, you’d start with the number zero and, for each element, add that to the sum.
+
+The parameters to `reduce` are, apart from the array, a combining function and a start value.
+
+```bash
+function reduce(array, combine, start) {
+  let current = start;
+  for (let element of array) {
+    current = combine(current, element);
+  }
+  return current;
+}
+
+console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
+// → 10
+```
+
+The standard array method `reduce`, has an added convenience i.e. If your array contains at least one element, you are allowed to leave off the `start` argument. The method will take the first element of the array as its start value and start reducing at the second element.
