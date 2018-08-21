@@ -473,3 +473,35 @@ console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
 ```
 
 The standard array method `reduce`, has an added convenience i.e. If your array contains at least one element, you are allowed to leave off the `start` argument. The method will take the first element of the array as its start value and start reducing at the second element.
+
+## Composability
+
+Higher-order functions start to shine when you need to `compose` operations.
+
+```bash
+function average(array) {
+  return array.reduce((a, b) => a + b) / array.length;
+}
+
+console.log(Math.round(average(
+  SCRIPTS.filter(s => s.living).map(s => s.year))));
+// → 1188
+console.log(Math.round(average(
+  SCRIPTS.filter(s => !s.living).map(s => s.year))));
+// → 188
+
+let total = 0, count = 0;
+for (let script of SCRIPTS) {
+  if (script.living) {
+    total += script.year;
+    count += 1;
+  }
+}
+console.log(Math.round(total / count));
+// → 1188
+```
+
+It is harder to see what was being computed and how. And because intermediate results aren’t represented as coherent values, it’d be a lot more work to extract something like `average` into a separate function.
+
+In terms of what the computer is actually doing, these two approaches are also quite different. The first will build up new arrays when running `filter` and `map`, whereas the second computes only some numbers, doing less work. You can usually afford the readable approach, but if you’re processing huge arrays, and doing so many times, the less abstract style might be worth the extra speed.
+
